@@ -1,0 +1,26 @@
+{
+  "name": "password-keeper",
+  "version": "1.0.0",
+  "description": "password keeper stack application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasujogani/Password-Keeper.git"
+  },
+  "author": "Vasu Jogani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vasujogani/Password-Keeper/issues"
+  },
+  "homepage": "https://github.com/vasujogani/Password-Keeper#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "morgan": "^1.8.2"
+  }
+}
