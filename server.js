@@ -2,14 +2,18 @@ var express = require('express');
 var app = express();
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var User = require('./app/models/user');
 var bodyParser = require('body-parser');
+var router = express.Router();
+var path = require('path');
+var appRoutes = require("./app/routes/api")(router);
 
 app.set('port', process.env.PORT || 8080);
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public')); // Allow front end to access public folder
+app.use('/api', appRoutes); 
 
 mongoose.connect('mongodb://localhost:27017/passwordkeeper', function(err){
   if(err){
@@ -19,13 +23,8 @@ mongoose.connect('mongodb://localhost:27017/passwordkeeper', function(err){
   }
 });
 
-app.post('/users', function(req,res){
-  var user = new User();
-  user.username = req.body.username;
-  user.password = req.body.password;
-  user.email = req.body.email;
-  user.save();
-  res.send('Entered into users');
+app.get("*", function(req,res){
+  res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 })
 
 app.listen(app.get('port'), function(){
