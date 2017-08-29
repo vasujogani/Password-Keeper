@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-
+    <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -24,6 +24,7 @@
     <!--Angular Config/Routes-->
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
 
     <!-- Custom styles for this template -->
 
@@ -41,16 +42,17 @@
           <a class="navbar-brand" href="#">SafePass</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Add</a></li>
-          <li><a href="#">Something 2</a></li>
-          <li><a href="#">Something 3</a></li>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/add">Add</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </div>
     </nav>
 
     <div class="container">
-
+      <div ng-view>
+      </div>
     </div>
     <!-- /.container -->
 
