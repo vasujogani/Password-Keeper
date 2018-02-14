@@ -11,9 +11,10 @@ module.exports = function(router){
     }else{
       user.save(function(err){
         if(err){
-          res.send("Username or email already found!");
+          // res.send("Username or email already found!");
+          res.json({success: false, message: 'Username or email already found'})
         }else{
-          res.send('User created!');
+          res.json({success: true, message: 'User created!'});
         }
       });
     }
